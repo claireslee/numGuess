@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <title> The # Guessing Game </title>
+  
+    <style>
+        html {
+            font-family: sans-serif;
+        }
+      
+        body {
+            /* width: 50%;
+            max-width: 800px;
+            min-width: 480px;
+            margin: 0 auto; */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(252, 255, 224);
+        }
+
+        
+        .textbgc {
+            color: rgb(5, 0, 0);
+            padding: 3px;
+        }
+    </style>
+
+</head>
+  
+<body>
+    <h1> GUESS THE NUMBER :D </h1>
+    
+    <p> We chose a number between 1 - 10. Can you guess it? </p>
+    
+    <div>
+        <label> Enter a guess: </label>
+        <input type = "text" id = "guessField" class = "guessField">
+        <input type = "submit" value = " ENTER " class = "guessSubmit" id = "submitGuess">
+        <p class="textbgc"></p>
+    </div>
+
+    <script>
+        const textbgc = document.querySelector('.textbgc');
+        const arr = ["crimson", "DarkRed", "FireBrick", "IndianRed", "Red", "Tomato"];
+
+        var rand = Math.floor(Math.random() * 10 + 1);
+        var guesses = 1;
+        
+        document.getElementById("submitGuess").onclick = function() {
+            var userInput = document.getElementById("guessField").value;
+            if (userInput == rand) {
+                // html.backgroundColor = "blue";
+                textbgc.textContent = 'NOO, YOU GUESSED IT. IT TOOK YOU ' + guesses + ' TRIES!!!!!!!';
+                textbgc.style.backgroundColor = 'honeydew';
+                document.body.style.backgroundColor = "chartreuse";
+            }
+
+            else if (userInput > rand) {    
+                guesses++;
+                textbgc.textContent = 'HA NOPE! TRY AGAIN (... maybe a smaller # this time)';
+                textbgc.style.backgroundColor = 'red';
+                // document.body.style.backgroundColor = "crimson";
+
+                for (let i = 0; i < arr.length(); i++) {
+                    var changeColor = arr[i];
+                }
+                document.body.style.backgroundColor = changeColor;
+            }
+
+            else {
+                guesses++;
+                textbgc.textContent = 'HA NOPE! TRY AGAIN (... maybe a greater # this time)'
+                textbgc.style.backgroundColor = 'red';
+                
+                for (let i = 0; i < arr.length(); i++) {
+                    var changeColor = arr[i];
+                }
+                document.body.style.backgroundColor = changeColor;
+            }
+        }
+        
+        /*
+        let inputElement = document.querySelector("#guessField");
+        
+        inputElement.addEventListener("keyup", function(event) {
+            if (event.key == "Enter") {
+                submitGuess();
+            }
+        });
+        */
+        
+    </script>
+ 
+</body>
+
+</html>  
